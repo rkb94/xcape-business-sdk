@@ -3,7 +3,7 @@ name: freelec-springboot2-webservice
 on:
   push:
     branches:
-      - master  # push되면 실행될 브랜치를 선택합니다.
+      - develop  # push되면 실행될 브랜치를 선택합니다.
       # ex) master (저는 version/2020-12-11 브랜치로 지정)
   workflow_dispatch: # 수동 실행
 
@@ -21,6 +21,10 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
+        shell: bash
+        
+      - name: Task Gradle wrapper
+        run: ./gradlew wrapper
         shell: bash
 
       - name: Build with Gradle
